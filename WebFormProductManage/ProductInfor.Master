@@ -1,0 +1,334 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ProductInfor.master.cs" Inherits="WebFormProductManage.ProductInfor" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/client/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>qtMOBILE</title>
+    <style>
+/* ProductInfo */
+        .directional {
+            width: 100%;
+            height: 40px;
+            font-size: 14px;
+            line-height: 30px;
+            border-bottom:3px solid green;
+            margin-bottom:60px
+        }
+        .block__product--info {
+            height: auto;
+            width: 100%;
+            padding: 0 100px;
+            display: flex;
+            margin-top: 20px;
+        }
+        .img__productInfo {
+            height: 100%;
+            width: 35%;
+             
+        }
+
+
+        .product__information {
+            height: 100%;
+            width: 65%;
+            font-size: 16px;
+        }
+        .productInfo__name {
+            font-size: 20px;
+            border-bottom: 1px solid #000;
+            height: 60px;
+        }
+        .productInfo__price {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+        }
+        .trademark {
+            width: 100%;
+        }
+        .status {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .description {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .product__color {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .amount {
+            margin-bottom: 10px;
+        }
+        .btn__buy {
+            height: 50px;
+            width: 200px;
+            color: #fff;
+            background-color: #05b2e9;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+        }
+        .btn__buy:hover {
+            width: 220px;
+            font-weight: bold;
+            border: 2px solid tomato;
+            box-shadow: 10px 10px 10px #666;
+        }
+        .related__products {
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            border-bottom:3px solid green;
+            padding-left: 50px;
+            font-weight:bold;
+            
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <div class="app">
+        <div id="header" class="header">
+            <div class="header__navbar">
+                <div class="navbar__left">
+                    <p> <i class="fa-solid fa-bullhorn"></i> Welcome to qtMOBILE </p>   
+                </div>
+                
+                <div class="navbar__right">
+                    <ul class="navbar__login">
+                        <li class="navbar__login--item">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <a class="register navbar__link" href="">Đăng Ký</a>
+                        </li>
+                        <li class="navbar__login--item">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <a class="login navbar__link" href="">Đăng Nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="header__search">
+                <div class="header__logo">
+                    <a href="/"><img src="Assets/client/img/logoWebsiteDone02.png" alt="Logo Website" class="img__logo"></a>
+                </div>
+
+                <div class="header__input">
+                    <div class="header__input--search">
+                        <input type="text" name="" class="input__search" placeholder="Tìm kiếm tại đây...">
+                        <button class="btn__search"><i class="fa-solid fa-magnifying-glass icon__search"></i></button>
+                    </div>   
+                </div>
+
+                <div class="header__contact">
+                    <div class="contact__logo"></div>
+                    <div class="contact__info">
+                        <p>Hotline: <span style="color:#11805d; font-weight: bold;">0362136975</span></p>
+                        <p>Email:<i>quangdt432002@gmail.com</i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <marquee class="auto__welcome" behavior="" direction="left">
+            <i class="fa-solid fa-bullhorn icon__bull"></i>
+            Chào mừng bạn đến với Website qtMOBILE.com nền tảng cung cấp lựa chọn di động hàng đầu VIỆT NAM
+        </marquee>
+
+         <div class="navigation">
+            <div class="producer">
+                <div class="producer__item">
+                    <a href="">
+                        <img src="Assets/client/img/img__logo-iphone.png" alt="">
+                    </a>
+                </div>
+
+                <div class="producer__item">
+                    <a href="">
+                        <img src="Assets/client/img/img__logo-samsung.png" alt="">
+                    </a>
+                </div>
+
+                <div class="producer__item">
+                    <a href="">
+                        <img src="Assets/client/img/img__logo-xiaomi.png" alt="">
+                    </a>
+                </div>
+
+                <div class="producer__item">
+                    <a href="">
+                        <img src="Assets/client/img/img__logo-oppo.png" alt="">
+                    </a>
+                </div>
+
+                <div class="producer__item">
+                    <a href="">
+                        <img src="Assets/client/img/img__logo-nokia.png" alt="">
+                    </a>
+                </div>
+
+                <div class="producer__item">
+                    <a href="">
+                        <img src="Assets/client/img/img__logo-vivo.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="directional container container-fluid mt-5">
+            
+            <a class="text-decoration-none" href="/">Trang chủ</a> / 
+            <span class="breadcrumb-item active"> Quản lý sản phẩm</span>
+        
+        </div>
+
+        <div class="block__product--info">
+            <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder1">
+
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="related__products container container-fluid mt-5 text-center ">SẢN PHẨM LIÊN QUAN</div>
+        <div class="block__product">
+            <asp:Repeater runat="server" ID="rptProduct">
+                <ItemTemplate>
+                    <div class="product__list product__list--06">
+                <div class="product__item">
+                    <div class="product__img"> 
+                        <a href="/productinfor?productid=<%#Eval("ID") %>" class="product__link pd__img">
+                           <img src="<%# ResolveUrl(Convert.ToString(Eval("Thumbnail"))) %>" style="width:88%"/>
+                        </a>
+                    </div>
+
+                    <div class="product__info">
+                         <a href="/productinfor?productid=<%#Eval("ID") %>" class="product__link product__title">
+                             <%#Eval("Name") %>
+                        </a>
+
+                        <div class="price">
+                           <span class="price__new">
+                                <%#Eval("Price")%> đ
+                            </span>
+                        </div>
+                       
+                    </div>
+
+                </div>
+
+            </div>
+                </ItemTemplate>
+            </asp:Repeater> 
+        </div>
+        
+        <div class="footer">
+            <div class="footer__item">
+                <div class="heading__text">VỀ CHÚNG TÔI</div>
+                <ul class="footer___link">
+                    <li class="footer___link--item">
+                        <a href="" class="link__nav"><i class="fa-solid fa-house"></i> Trang chủ </a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-mobile"></i> Sản phẩm</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-newspaper"></i> Tin tức</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-phone"></i> Liên hệ</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="footer__item">
+                <div class="heading__text">HỖ TRỢ KHÁCH HÀNG</div>
+                <ul class="footer___link">
+                    <li class="footer___link--item">
+                        <a href="" class="link__nav"><i class="fa-solid fa-cart-shopping"></i> Hướng dẫn mua hàng </a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-sharp fa-solid fa-credit-card"></i> Giao nhận và thanh toán</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-user-plus"></i> Đăng ký thành viên</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-users"></i> Tuyển cộng tác viên bán hàng online</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="footer__item">
+                <div class="heading__text">CHÍNH SÁCH MUA HÀNG</div>
+                <ul class="footer___link">
+                    <li class="footer___link--item">
+                        <a href="" class="link__nav"><i class="fa-solid fa-handshake"></i> Chính sách thanh toán</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-handshake"></i> Chính sách đổi trả</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-handshake"></i> Chính sách vận chuyển</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-handshake"></i> Chính sách bảo hành</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="footer__item">
+                <div class="heading__text">LIÊN HỆ VỚI CHÚNG TÔI</div>
+                <ul class="footer___link">
+                    <li class="footer___link--item">
+                        <a href="" class="link__nav"><i class="fa-solid fa-location-dot"></i> Địa chỉ: Gốc Mít </a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-phone"></i> Hotline: 0362136975</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="" class="link__nav"><i class="fa-solid fa-envelope"></i> Email: quangdt432002@gmail.com</a>
+                    </li>
+
+                    <li class="footer___link--item">
+                         <a href="#header" class="link__nav"><i class="fa-solid fa-earth-americas"></i> Website: qtmobile.com</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p class="copyright__text">© 2022 - Copyright belong to qtMOBILE</p>
+        </div>
+        
+    </div>
+    </form>
+</body>
+</html>

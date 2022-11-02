@@ -11,7 +11,19 @@ namespace WebFormProductManage.Admin.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
+            if (HttpContext.Current.Session["username"]==null)
+            {
+                Response.Redirect("/admin/views/login");
+            }
+            else
+            {
+                lbWellcome.Text = Page.Session["username"].ToString();
+            }
+                    
+            
         }
+
+        
     }
 }

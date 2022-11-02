@@ -105,19 +105,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Views\CreateUpdate.aspx" />
+    <Content Include="Admin\Views\CreateUpdateProducer.aspx" />
+    <Content Include="Admin\Views\CreateUpdateProduct.aspx" />
     <Content Include="Admin\Views\Default.aspx" />
+    <Content Include="Admin\Views\GetAllProducer.aspx" />
     <Content Include="Admin\Views\GetAllProduct.aspx" />
     <Content Include="Admin\Views\GetAllUser.aspx" />
     <Content Include="Admin\Views\Login.aspx" />
+    <Content Include="Admin\Views\UpdateImg.aspx" />
+    <Content Include="AllProduct.aspx" />
     <Content Include="Assets\admin\css\login.css" />
+    <Content Include="Assets\admin\js\login.js" />
     <Content Include="Assets\assets\demo\chart-area-demo.js" />
     <Content Include="Assets\assets\demo\chart-bar-demo.js" />
     <Content Include="Assets\assets\demo\chart-pie-demo.js" />
     <Content Include="Assets\assets\demo\datatables-demo.js" />
     <Content Include="Assets\assets\img\error-404-monochrome.svg" />
+    <Content Include="Assets\client\css\gridSystem.css" />
+    <Content Include="Assets\client\css\style.css" />
+    <Content Include="Assets\client\css\styleLogin.css" />
+    <Content Include="Assets\client\img\banner__iphone.png" />
+    <Content Include="Assets\client\img\banner__redmi.png" />
+    <Content Include="Assets\client\img\img__logo-iphone.png" />
+    <Content Include="Assets\client\img\img__logo-nokia.png" />
+    <Content Include="Assets\client\img\img__logo-oppo.png" />
+    <Content Include="Assets\client\img\img__logo-samsung.png" />
+    <Content Include="Assets\client\img\img__logo-vivo.png" />
+    <Content Include="Assets\client\img\img__logo-xiaomi.png" />
+    <Content Include="Assets\client\img\img__logoWebsite02.png" />
+    <Content Include="Assets\client\img\img__slider01.PNG" />
+    <Content Include="Assets\client\img\img__slider02.jpg" />
+    <Content Include="Assets\client\img\img__slider03F.PNG" />
+    <Content Include="Assets\client\img\img__slider04.jpg" />
+    <Content Include="Assets\client\img\img__slider05.jpg" />
+    <Content Include="Assets\client\img\img__slider06.jpg" />
+    <Content Include="Assets\client\img\logoWebsite.png" />
+    <Content Include="Assets\client\img\logoWebsiteDone.png" />
+    <Content Include="Assets\client\img\logoWebsiteDone02.png" />
+    <Content Include="Assets\client\img\logo__Website03.png" />
+    <Content Include="Assets\client\img__products\img__iphone14.png" />
+    <Content Include="Assets\client\img__products\img__nokia11.png" />
+    <Content Include="Assets\client\img__products\img__oppoZeno6.png" />
+    <Content Include="Assets\client\img__products\img__productInfo--iphone 14.png" />
+    <Content Include="Assets\client\img__products\img__samsungS22.png" />
+    <Content Include="Assets\client\img__products\img__vivoV21.png" />
+    <Content Include="Assets\client\img__products\img__xiaomi12t.png" />
+    <Content Include="Assets\client\js\app.js" />
+    <Content Include="Assets\client\js\validateLogin.js" />
+    <Content Include="Assets\client\js\validateRegister.js" />
     <Content Include="Assets\css\styles.css" />
+    <Content Include="Assets\img\1648477630913_ctaa.png" />
+    <Content Include="Assets\img\home-admin.jpeg" />
     <Content Include="Assets\img\logo_pass.png" />
     <Content Include="Assets\img\logo_username.png" />
+    <Content Include="Assets\img\What-is-Product-Lifecycle-Management-1.jpg" />
     <Content Include="Assets\js\datatables-simple-demo.js" />
     <Content Include="Assets\js\scripts.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -137,7 +179,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin\Views\Admin.Master" />
+    <Content Include="Home.Master" />
+    <Content Include="AllProduct.Master" />
+    <Content Include="ProductInfor.aspx" />
+    <Content Include="ProductInfor.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -177,12 +225,40 @@
     <Compile Include="Admin\Views\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Views\CreateUpdate.aspx.cs">
+      <DependentUpon>CreateUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdate.aspx.designer.cs">
+      <DependentUpon>CreateUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateProducer.aspx.cs">
+      <DependentUpon>CreateUpdateProducer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateProducer.aspx.designer.cs">
+      <DependentUpon>CreateUpdateProducer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateProduct.aspx.cs">
+      <DependentUpon>CreateUpdateProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateProduct.aspx.designer.cs">
+      <DependentUpon>CreateUpdateProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Views\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Views\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllProducer.aspx.cs">
+      <DependentUpon>GetAllProducer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllProducer.aspx.designer.cs">
+      <DependentUpon>GetAllProducer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Views\GetAllProduct.aspx.cs">
       <DependentUpon>GetAllProduct.aspx</DependentUpon>
@@ -205,6 +281,27 @@
     <Compile Include="Admin\Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Views\UpdateImg.aspx.cs">
+      <DependentUpon>UpdateImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\UpdateImg.aspx.designer.cs">
+      <DependentUpon>UpdateImg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllProduct.aspx.cs">
+      <DependentUpon>AllProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllProduct.aspx.designer.cs">
+      <DependentUpon>AllProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllProduct.Master.cs">
+      <DependentUpon>AllProduct.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllProduct.Master.designer.cs">
+      <DependentUpon>AllProduct.Master</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Default.aspx.cs">
@@ -217,12 +314,49 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ConnectionDb.cs" />
     <Compile Include="Models\Producer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="ProductInfor.aspx.cs">
+      <DependentUpon>ProductInfor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfor.aspx.designer.cs">
+      <DependentUpon>ProductInfor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfor.Master.cs">
+      <DependentUpon>ProductInfor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfor.Master.designer.cs">
+      <DependentUpon>ProductInfor.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ProducerService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
