@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using WebFormProductManage.Models;
 using WebFormProductManage.Services;
 
-namespace WebFormProductManage.Admin.Views
+namespace WebFormProductManage.Admin.Views 
 {
     public partial class CreateUpdate : System.Web.UI.Page
     {

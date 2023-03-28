@@ -18,6 +18,8 @@ namespace WebFormProductManage.Admin.Views
                 List<Product> products = ProductService.GetAll();
                 gvProduct.DataSource = products;
                 gvProduct.DataBind();
+
+               
             }
             
         }
@@ -46,16 +48,17 @@ namespace WebFormProductManage.Admin.Views
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                Label lbID = (Label)e.Row.FindControl("lbID");
+                Label lbName = (Label)e.Row.FindControl("lbName");
                 foreach (Button bt in e.Row.Cells[6].Controls.OfType<Button>())
                 {
                     if (bt.CommandName == "Delete")
                     {
-                        bt.Attributes["onclick"] = "if(!confirm('Bạn có muốn xóa sản phẩm có ID là: " + lbID.Text + "?')){ return false; };";
+                        bt.Attributes["onclick"] = "if(!confirm('Bạn có muốn xóa sản phẩm có tên là: " + lbName.Text + "?')){ return false; };";
 
                     }
                 }
             }
+           
         }
 
         protected void gvProduct_RowEditing(object sender, GridViewEditEventArgs e)

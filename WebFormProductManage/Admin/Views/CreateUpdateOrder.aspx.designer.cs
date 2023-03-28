@@ -7,56 +7,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormProductManage
+namespace WebFormProductManage.Admin.Views
 {
 
 
-    public partial class Home
+    public partial class CreateUpdateOrder
     {
 
         /// <summary>
-        /// tbSearch control.
+        /// lbTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSearch;
+        protected global::System.Web.UI.WebControls.Label lbTitle;
 
         /// <summary>
-        /// btSearch control.
+        /// tbFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btSearch;
+        protected global::System.Web.UI.WebControls.TextBox tbFullName;
 
         /// <summary>
-        /// rptProducer control.
+        /// tbPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptProducer;
+        protected global::System.Web.UI.WebControls.TextBox tbPhoneNumber;
 
         /// <summary>
-        /// rptProduct control.
+        /// tbAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptProduct;
+        protected global::System.Web.UI.WebControls.TextBox tbAddress;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// tbTotalMoney control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.TextBox tbTotalMoney;
+
+        /// <summary>
+        /// tbOrderDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbOrderDate;
+
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

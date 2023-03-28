@@ -14,7 +14,7 @@
     <div  class="container-fluid px-5" style="width:700px">
        
         <form runat="server">
-            <div class="form-group">
+            <div class="form-group" hidden="hidden">
                 <label class="fw-bold">ID</label>
                 <asp:TextBox runat="server" ID="tbID" Enabled="false" CssClass="form-control "></asp:TextBox>
             </div>
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label class="fw-bold" >Giá</label>
-                <asp:TextBox TextMode="Number"  runat="server" ID="tbPrice" CssClass="form-control "></asp:TextBox>
+                <asp:TextBox  runat="server" ID="tbPrice" CssClass="form-control "></asp:TextBox>
             </div>
             <div class="form-group">
                 <label class="fw-bold" >Màu sắc</label>

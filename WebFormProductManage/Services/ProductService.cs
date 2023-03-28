@@ -10,6 +10,7 @@ namespace WebFormProductManage.Services
 {
     public class ProductService
     {
+        
         public static List<Product> GetAll()
         {
             List<Product> products = new List<Product>();
@@ -18,8 +19,10 @@ namespace WebFormProductManage.Services
 
             string sql = @"select [tbl__Product].ID, [tbl__Product].Name,  [tbl__Product].Thumbnail , 
                                 [tbl__Product].Price, [tbl__Product].Description,[tbl__Product].Hot,[tbl__Product].Color,[tbl__Producer].Fullname
-                            from [tbl__Product] inner join [tbl__Producer] 
-                            on [tbl__Product].ProducerID=[tbl__Producer].ID";
+                            from [tbl__Product]
+                            inner join [tbl__Producer] 
+                            on [tbl__Product].ProducerID=[tbl__Producer].ID 
+                            order by NEWID()";
 
             SqlCommand sqlCommand = new SqlCommand(sql, conn)
             {
@@ -29,7 +32,7 @@ namespace WebFormProductManage.Services
             conn.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 Product product = new Product
@@ -37,12 +40,22 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                    
+                    Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
                     Description = Convert.ToString(sqlDataReader["Description"]),
-                    Hot = Convert.ToByte(sqlDataReader["Hot"]),
+                    Hot = Convert.ToString(sqlDataReader["Hot"]),
                     Color = Convert.ToString(sqlDataReader["Color"]),
                     ProducerName = Convert.ToString(sqlDataReader["Fullname"]),
                 };
+                
+              
+                if (product.Hot.Equals("True"))
+                    product.Hot = "Có";
+                else
+                {
+                    product.Hot = "Không";
+                }
+
                 
                 products.Add(product);
             }
@@ -70,7 +83,7 @@ namespace WebFormProductManage.Services
             conn.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 Product product = new Product
@@ -78,7 +91,7 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                     Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
 
                 };
 
@@ -108,7 +121,7 @@ namespace WebFormProductManage.Services
             conn.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 Product product = new Product
@@ -116,7 +129,7 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                     Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
 
                 };
 
@@ -136,7 +149,7 @@ namespace WebFormProductManage.Services
 
             SqlConnection conn = ConnectionDb.GetConnection();
 
-            string sql = "SELECT TOP 10 ID,Thumbnail,Name,Price FROM [tbl__Product] where Hot=1";
+            string sql = "SELECT TOP 10 ID,Thumbnail,Name,Price FROM [tbl__Product] where Hot=1 order by NEWID()";
 
             SqlCommand sqlCommand = new SqlCommand(sql, conn)
             {
@@ -146,7 +159,7 @@ namespace WebFormProductManage.Services
             conn.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 Product product = new Product
@@ -154,7 +167,7 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                     Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
 
                 };
 
@@ -167,6 +180,48 @@ namespace WebFormProductManage.Services
             return products;
 
 
+        }
+        public static List<Product> Get5ProductByProducer(int _id)
+        {
+            List<Product> products = new List<Product>();
+            SqlConnection conn = ConnectionDb.GetConnection();
+
+            string sql = $@"select top 5 [tbl__Product].ID, [tbl__Product].Name,  [tbl__Product].Thumbnail , 
+                                [tbl__Product].Price,[tbl__Product].Description,[tbl__Product].Color,[tbl__Producer].Fullname
+                            from [tbl__Product] inner join [tbl__Producer] 
+                            on [tbl__Product].ProducerID=[tbl__Producer].ID where [tbl__Product].ProducerID={_id} order by NEWID()";
+
+            SqlCommand sqlCommand = new SqlCommand(sql, conn)
+            {
+                CommandType = System.Data.CommandType.Text
+            };
+
+            conn.Open();
+
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
+            while (sqlDataReader.Read())
+            {
+                Product product = new Product
+                {
+                    Id = Convert.ToInt32(sqlDataReader["ID"]),
+                    Name = Convert.ToString(sqlDataReader["Name"]),
+                    Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
+                    Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
+                    Description = Convert.ToString(sqlDataReader["Description"]),
+                    Color = Convert.ToString(sqlDataReader["Color"]),
+
+                    ProducerName = Convert.ToString(sqlDataReader["Fullname"]),
+
+                };
+
+                products.Add(product);
+            }
+
+            sqlDataReader.Close();
+            conn.Close();
+            conn.Dispose();
+            return products;
         }
         public static List<Product> GetAllProductByProducer(int _id)
         {
@@ -186,7 +241,7 @@ namespace WebFormProductManage.Services
             conn.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 Product product = new Product
@@ -194,7 +249,7 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                     Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
                     Description = Convert.ToString(sqlDataReader["Description"]),
                     Color = Convert.ToString(sqlDataReader["Color"]),
                     
@@ -276,7 +331,7 @@ namespace WebFormProductManage.Services
             SqlConnection conn = ConnectionDb.GetConnection();
 
             string sql = @"select [tbl__Product].ID, [tbl__Product].Name,  [tbl__Product].Thumbnail , 
-                                [tbl__Product].Price,[tbl__Product].Description,[tbl__Product].Color,[tbl__Product].Hot, [tbl__Producer].Fullname
+                                [tbl__Product].Price,[tbl__Product].Description,[tbl__Product].Color,[tbl__Product].Hot, [tbl__Producer].Fullname, [tbl__Product].ProducerID
                             from [tbl__Product] inner join [tbl__Producer] 
                             on [tbl__Product].ProducerID=[tbl__Producer].ID where [tbl__Product].ID=@id";
 
@@ -287,7 +342,7 @@ namespace WebFormProductManage.Services
 
             sqlCommand.Parameters.AddWithValue("@id", _id);
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 product = new Product
@@ -295,13 +350,21 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                    Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
                     Description = Convert.ToString(sqlDataReader["Description"]),
                     Color = Convert.ToString(sqlDataReader["Color"]),
-                    Hot = Convert.ToByte(sqlDataReader["Hot"]),
+                    Hot = Convert.ToString(sqlDataReader["Hot"]),
                     ProducerName = Convert.ToString(sqlDataReader["Fullname"]),
-                    
+                    ProducerID= Convert.ToInt32(sqlDataReader["ProducerID"]),
                 };
+                if (product.Hot.Equals("True"))
+                {
+                    product.Hot = "Có";
+                }
+                else
+                {
+                    product.Hot = "Không";
+                }
             }
 
             sqlDataReader.Close();
@@ -327,7 +390,7 @@ namespace WebFormProductManage.Services
 
             sqlCommand.Parameters.AddWithValue("@id", _id);
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 Product product = new Product
@@ -335,14 +398,23 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                     Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
                     //Price = Convert.ToInt32(string.Format("{0:#,##0.00}", sqlDataReader["Price"])),
                     Description = Convert.ToString(sqlDataReader["Description"]),
                     Color = Convert.ToString(sqlDataReader["Color"]),
-                    Hot = Convert.ToByte(sqlDataReader["Hot"]),
+                    Hot = Convert.ToString(sqlDataReader["Hot"]),
                     ProducerName = Convert.ToString(sqlDataReader["Fullname"]),
 
                 };
+                if (product.Hot.Equals("True"))
+                {
+                    product.Hot = "Có";
+                }
+                else
+                {
+                    product.Hot = "Không";
+                }
+
                 products.Add(product);
             }
 
@@ -390,7 +462,7 @@ namespace WebFormProductManage.Services
 
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             while (sqlDataReader.Read())
             {
                 Product product = new Product
@@ -398,12 +470,20 @@ namespace WebFormProductManage.Services
                     Id = Convert.ToInt32(sqlDataReader["ID"]),
                     Name = Convert.ToString(sqlDataReader["Name"]),
                     Thumbnail = Convert.ToString(sqlDataReader["Thumbnail"]),
-                    Price = Convert.ToInt32(sqlDataReader["Price"]),
+                     Price = Convert.ToDouble(sqlDataReader["Price"]).ToString("###,###", cul.NumberFormat),
                     Description = Convert.ToString(sqlDataReader["Description"]),
-                    Hot = Convert.ToByte(sqlDataReader["Hot"]),
+                    Hot = Convert.ToString(sqlDataReader["Hot"]),
                     Color = Convert.ToString(sqlDataReader["Color"]),
                     ProducerName = Convert.ToString(sqlDataReader["Fullname"]),
                 };
+                if (product.Hot.Equals("True"))
+                {
+                    product.Hot = "Có";
+                }
+                else
+                {
+                    product.Hot = "Không";
+                }
                 products.Add(product);
             }
 

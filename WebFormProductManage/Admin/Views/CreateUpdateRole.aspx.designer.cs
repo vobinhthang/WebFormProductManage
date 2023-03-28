@@ -7,47 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormProductManage
+namespace WebFormProductManage.Admin.Views
 {
 
 
-    public partial class AllProduct
+    public partial class CreateUpdateRole
     {
 
         /// <summary>
-        /// tbSearch control.
+        /// lbTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSearch;
+        protected global::System.Web.UI.WebControls.Label lbTitle;
 
         /// <summary>
-        /// btSearch control.
+        /// tbName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btSearch;
+        protected global::System.Web.UI.WebControls.TextBox tbName;
 
         /// <summary>
-        /// rptProducer control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptProducer;
-
-        /// <summary>
-        /// rptAllProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptAllProduct;
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

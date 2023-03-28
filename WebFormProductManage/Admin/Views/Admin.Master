@@ -51,6 +51,14 @@
                                 <div class="sb-nav mx-2"><i class="fa-brands fa-product-hunt"></i></div>
                                 Quản lý nhà sản xuất
                             </a>
+                            <a class="nav-link mb-2 menu " id="order"  href="getallorder">
+                                <div class="sb-nav mx-2"><i class="fa-brands fa-product-hunt"></i></div>
+                                Quản lý hoá đơn
+                            </a>
+                            <a class="nav-link mb-2 menu " id="role"  href="getallrole">
+                                <div class="sb-nav mx-2"><i class="fa-brands fa-product-hunt"></i></div>
+                                Quản lý chức vụ người dùng
+                            </a>
                         </div>
                     </div>
                 </nav>

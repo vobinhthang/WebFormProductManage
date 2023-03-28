@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -39,11 +41,11 @@ namespace WebFormProductManage.Admin.Views
                     tbID.Text = Convert.ToString(product.Id);
                     tbName.Text = product.Name;
 
-
-                    tbPrice.Text = Convert.ToString(product.Price);
+                    tbPrice.Text = product.Price.Replace(".", string.Empty); 
+                    
                     tbDescription.Text = product.Description;
                     tbColor.Text = product.Color;
-                    if (product.Hot==1)
+                    if (product.Hot.Equals("Có"))
                     {
                         cbHot.Checked = true;
                     }
@@ -62,41 +64,34 @@ namespace WebFormProductManage.Admin.Views
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
-            
-
-
             queryID = Convert.ToInt32(Page.Request.QueryString["id"]);
 
             string imageFolderPath = "~/Assets/img/";
             string imageFileName = string.Empty;
+            
+            
+            Product product = new Product();
+            product.Id = queryID;
+            product.Name = tbName.Text;
             if (fileImage.HasFile)
             {
                 imageFileName = fileImage.FileName;
                 string imageServerPath = Server.MapPath(imageFolderPath + imageFileName);
                 fileImage.SaveAs(imageServerPath);
+                product.Thumbnail = imageFolderPath + imageFileName;
                 
             }
-
-            Product product = new Product();
-            product.Id = queryID;
-            product.Name = tbName.Text;
-            product.Thumbnail = imageFolderPath + imageFileName;
-            product.Price = Convert.ToInt32(tbPrice.Text);
+            product.Price = tbPrice.Text;
             product.Color = tbColor.Text;
             product.Description = tbDescription.Text;
             if (cbHot.Checked)
-                product.Hot = 1;
+                product.Hot = "True";
             else
-                product.Hot = 0;
+                product.Hot = "False";
             product.ProducerID = Convert.ToInt32(ddlProducerName.SelectedItem.Value);
             if (ProductService.CreateOrUpdate(product))
             {
-                tbID.Text = string.Empty;
-                tbName.Text = string.Empty;
-                tbPrice.Text = string.Empty;
-                tbDescription.Text = string.Empty;
-                tbColor.Text = string.Empty;
-                cbHot.Checked = false;
+              
 
                 if (queryID!=0)
                 {
@@ -104,6 +99,12 @@ namespace WebFormProductManage.Admin.Views
                 }
                 else
                 {
+                    tbID.Text = string.Empty;
+                    tbName.Text = string.Empty;
+                    tbPrice.Text = string.Empty;
+                    tbDescription.Text = string.Empty;
+                    tbColor.Text = string.Empty;
+                    cbHot.Checked = false;
                     Response.Write("<script>alert('Thêm sản phẩm thành công !')</script>");
                 }
             }

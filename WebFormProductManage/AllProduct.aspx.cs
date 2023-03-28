@@ -11,45 +11,47 @@ namespace WebFormProductManage
 {
     public partial class AllProduct1 : System.Web.UI.Page
     {
-        int queryID = 0;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                List<Product> products;
-                queryID = Convert.ToInt32(Page.Request.QueryString["producerid"]);
-                products = ProductService.GetAllProductByProducer(queryID);
-                if(products.Count > 0)
-                {
-                    rptAllProduct.DataSource = products;
-                    rptAllProduct.DataBind();
-                }
 
-                if (queryID == 0)
-                {
-                    products = ProductService.GetAll();
-                    rptAllProduct.DataSource = products;
-                    rptAllProduct.DataBind();
-                }
-            }
+            //if (!IsPostBack)
+            //{
+            //    var queryID = Convert.ToInt32(Page.Request.QueryString["producerid"]);
+            //    var products = ProductService.GetAllProductByProducer(queryID);
+
+            //    if (products.Count > 0)
+            //    {
+            //        rptAllProduct.DataSource = products;
+            //        rptAllProduct.DataBind();
+            //    }
+            //    else
+            //    {
+            //        products = ProductService.GetAll();
+            //        rptAllProduct.DataSource = products;
+            //        rptAllProduct.DataBind();
+            //    }
+
+            //}
         }
 
-        protected void tbSearch_TextChanged(object sender, EventArgs e)
-        {
-            string _search = tbSearch.Text.ToString();
-            List<Product> products = ProductService.Search(_search);
+        
+        //protected void tbSearch_TextChanged(object sender, EventArgs e)
+        //{
+        //    string _search = tbSearch.Text.ToString();
+        //    List<Product> products = ProductService.Search(_search);
+            
+        //    rptAllProduct.DataSource = products;
+        //    rptAllProduct.DataBind();
+        //}
 
-            rptAllProduct.DataSource = products;
-            rptAllProduct.DataBind();
-        }
+        //protected void btSearch_Click(object sender, EventArgs e)
+        //{
+        //    string _search = tbSearch.Text.ToString();
+        //    List<Product> products = ProductService.Search(_search);
 
-        protected void btSearch_Click(object sender, EventArgs e)
-        {
-            string _search = tbSearch.Text.ToString();
-            List<Product> products = ProductService.Search(_search);
-
-            rptAllProduct.DataSource = products;
-            rptAllProduct.DataBind();
-        }
+        //    rptAllProduct.DataSource = products;
+        //    rptAllProduct.DataBind();
+        //}
     }
 }

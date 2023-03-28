@@ -106,11 +106,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Views\CreateUpdate.aspx" />
+    <Content Include="Admin\Views\CreateUpdateOrder.aspx" />
+    <Content Include="Admin\Views\CreateUpdateOrderDetail.aspx" />
     <Content Include="Admin\Views\CreateUpdateProducer.aspx" />
     <Content Include="Admin\Views\CreateUpdateProduct.aspx" />
+    <Content Include="Admin\Views\CreateUpdateRole.aspx" />
     <Content Include="Admin\Views\Default.aspx" />
+    <Content Include="Admin\Views\GetAllOrder.aspx" />
+    <Content Include="Admin\Views\GetAllOrderDetail.aspx" />
     <Content Include="Admin\Views\GetAllProducer.aspx" />
     <Content Include="Admin\Views\GetAllProduct.aspx" />
+    <Content Include="Admin\Views\GetAllRole.aspx" />
     <Content Include="Admin\Views\GetAllUser.aspx" />
     <Content Include="Admin\Views\Login.aspx" />
     <Content Include="Admin\Views\UpdateImg.aspx" />
@@ -125,6 +131,7 @@
     <Content Include="Assets\client\css\gridSystem.css" />
     <Content Include="Assets\client\css\style.css" />
     <Content Include="Assets\client\css\styleLogin.css" />
+    <Content Include="Assets\client\img\352303_delete_icon.png" />
     <Content Include="Assets\client\img\banner__iphone.png" />
     <Content Include="Assets\client\img\banner__redmi.png" />
     <Content Include="Assets\client\img\img__logo-iphone.png" />
@@ -152,6 +159,7 @@
     <Content Include="Assets\client\img__products\img__vivoV21.png" />
     <Content Include="Assets\client\img__products\img__xiaomi12t.png" />
     <Content Include="Assets\client\js\app.js" />
+    <Content Include="Assets\client\js\messagecart.js" />
     <Content Include="Assets\client\js\validateLogin.js" />
     <Content Include="Assets\client\js\validateRegister.js" />
     <Content Include="Assets\css\styles.css" />
@@ -162,6 +170,7 @@
     <Content Include="Assets\img\What-is-Product-Lifecycle-Management-1.jpg" />
     <Content Include="Assets\js\datatables-simple-demo.js" />
     <Content Include="Assets\js\scripts.js" />
+    <Content Include="Cart.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -214,6 +223,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="UC\SearchUserControl1.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -232,6 +242,20 @@
     <Compile Include="Admin\Views\CreateUpdate.aspx.designer.cs">
       <DependentUpon>CreateUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Views\CreateUpdateOrder.aspx.cs">
+      <DependentUpon>CreateUpdateOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateOrder.aspx.designer.cs">
+      <DependentUpon>CreateUpdateOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateOrderDetail.aspx.cs">
+      <DependentUpon>CreateUpdateOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateOrderDetail.aspx.designer.cs">
+      <DependentUpon>CreateUpdateOrderDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Views\CreateUpdateProducer.aspx.cs">
       <DependentUpon>CreateUpdateProducer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,12 +270,33 @@
     <Compile Include="Admin\Views\CreateUpdateProduct.aspx.designer.cs">
       <DependentUpon>CreateUpdateProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Views\CreateUpdateRole.aspx.cs">
+      <DependentUpon>CreateUpdateRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\CreateUpdateRole.aspx.designer.cs">
+      <DependentUpon>CreateUpdateRole.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Views\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Views\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllOrder.aspx.cs">
+      <DependentUpon>GetAllOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllOrder.aspx.designer.cs">
+      <DependentUpon>GetAllOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllOrderDetail.aspx.cs">
+      <DependentUpon>GetAllOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllOrderDetail.aspx.designer.cs">
+      <DependentUpon>GetAllOrderDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Views\GetAllProducer.aspx.cs">
       <DependentUpon>GetAllProducer.aspx</DependentUpon>
@@ -266,6 +311,13 @@
     </Compile>
     <Compile Include="Admin\Views\GetAllProduct.aspx.designer.cs">
       <DependentUpon>GetAllProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllRole.aspx.cs">
+      <DependentUpon>GetAllRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\GetAllRole.aspx.designer.cs">
+      <DependentUpon>GetAllRole.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Views\GetAllUser.aspx.cs">
       <DependentUpon>GetAllUser.aspx</DependentUpon>
@@ -304,6 +356,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -329,9 +388,12 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\ConnectionDb.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Producer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\SharedData.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="ProductInfor.aspx.cs">
       <DependentUpon>ProductInfor.aspx</DependentUpon>
@@ -355,9 +417,19 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\OrderDetailService.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProducerService.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="UC\SearchUserControl1.ascx.cs">
+      <DependentUpon>SearchUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\SearchUserControl1.ascx.designer.cs">
+      <DependentUpon>SearchUserControl1.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

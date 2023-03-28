@@ -11,11 +11,14 @@ namespace WebFormProductManage.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Thumbnail { get; set; }
-        public int Price { get; set; }
+        public string Price { get; set; }
         public string Description { get; set; }
         public string Color { get; set; }
-        public byte Hot { get; set; }
+        public string Hot { get; set; }
         public int ProducerID { get; set; }
         public string ProducerName { get; set; }
+
+        public int Amount { get; set; }
+        public string TotalPrice { get; set; }
     }
 }

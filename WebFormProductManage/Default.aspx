@@ -15,8 +15,8 @@
                              <%#Eval("Name") %>
                         </a>
 
-                        <div class="price">
-                            <span class="price__new">
+                        <div class="price" >
+                            <span class="price__new" style="font-weight:bold">
                                 <%#Eval("Price")%> đ
                             </span>
 

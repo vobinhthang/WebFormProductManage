@@ -27,11 +27,11 @@
                    OnRowDeleting="gvProduct_RowDeleting" OnRowDataBound="gvProduct_RowDataBound" OnRowEditing="gvProduct_RowEditing"
                     PageSize="5" AllowPaging="True" OnPageIndexChanging="gvProduct_PageIndexChanging">
             <Columns >   
-                <asp:TemplateField  HeaderText="ID" >
+                <asp:TemplateField  HeaderText="STT"  >
                     
                     <ItemTemplate >  
-                    <asp:Label runat="server" ID="lbID" Text='<%#:Eval("ID")%>' Visible="false"></asp:Label>
-                      <%#Eval("ID")%>
+                    <asp:Label runat="server" ID="lbName" Text='<%#:Eval("Name")%>' Visible="false"></asp:Label>
+                      <%#Container.DataItemIndex + 1 %>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField  HeaderText="Ảnh sản phẩm"  HeaderStyle-Width="250px">

@@ -11,6 +11,7 @@ namespace WebFormProductManage.Admin.Views
 {
     public partial class CreateUpdateProducer : System.Web.UI.Page
     {
+
         int queryID = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +38,7 @@ namespace WebFormProductManage.Admin.Views
         protected void btnSave_Click(object sender, EventArgs e)
         {
             
-
+            
             Producer producer = new Producer();
             producer.Id = queryID;
             producer.Fullname = tbFullname.Text;

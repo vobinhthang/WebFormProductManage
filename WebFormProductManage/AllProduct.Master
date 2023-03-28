@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AllProduct.master.cs" Inherits="WebFormProductManage.AllProduct" %>
 
+
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -65,12 +68,17 @@
                 <div class="navbar__right">
                     <ul class="navbar__login">
                         <li class="navbar__login--item">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <a class="register navbar__link" href="cart">Giỏ hàng</a>
+                        </li>
+                        <li class="navbar__login--item">
                             <i class="fa-solid fa-user-plus"></i>
-                            <a class="register navbar__link" href="">Đăng Ký</a>
+                            <a class="register navbar__link" href="register">Đăng Ký</a>
                         </li>
                         <li class="navbar__login--item">
                             <i class="fa-solid fa-right-to-bracket"></i>
-                            <a class="login navbar__link" href="">Đăng Nhập</a>
+                            <a class="login navbar__link" href="login">Đăng Nhập</a>
+                            
                         </li>
                     </ul>
                 </div>
@@ -85,10 +93,11 @@
 
                 <div class="header__input">
                     <div class="header__input--search">
-                        <asp:TextBox CssClass="input__search"  AutoPostBack="true"  placeholder="Tìm kiếm tại đây"  runat="server" ID="tbSearch"></asp:TextBox>
-                        <asp:Button  runat="server" ID="btSearch" CssClass="btn__search" Text="." ForeColor="White" /><i style="position:absolute;left:962px;top:60px;font-size:20px" class="fa-solid fa-magnifying-glass icon__search"></i>
+                        <asp:TextBox OnTextChanged="tbSearch_TextChanged" CssClass="input__search"  AutoPostBack="true"  placeholder="Tìm kiếm tại đây"  runat="server" ID="tbSearch"></asp:TextBox>
+                        <asp:Button OnClick="btSearch_Click" runat="server" ID="btSearch" CssClass="btn__search" Text="." ForeColor="White" /><i style="position:absolute;left:1058px;top:64px;font-size:20px" class="fa-solid fa-magnifying-glass icon__search"></i>
                     </div>   
                 </div>
+                <%--<uc1:SearchUserControl1 runat="server" id="SearchUserControl1" />--%>
 
                 <div class="header__contact">
                     <div class="contact__logo"></div>
@@ -152,7 +161,7 @@
                     
                      <ul class="producer__link">
                          <li class="producer__link--item">
-                              <a class="text-decoration-none link__item" href="/allproduct?producerid=0">Tất cả</a>
+                              <a class="text-decoration-none link__item" href="/allproduct">Tất cả</a>
                         </li>
                         <asp:ScriptManager runat="server"></asp:ScriptManager>
                          <asp:UpdatePanel runat="server">
@@ -170,10 +179,17 @@
 
                 </div>
             </div>
+            
+        <div class="allproduct" style=" display: flex;
+    flex-wrap: wrap;height: auto;">
+            <asp:Repeater runat="server" ID="rptAllProduct">
+                 <ItemTemplate>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
                 </asp:ContentPlaceHolder>
-            
+            </ItemTemplate>
+    </asp:Repeater>
+            </div>
         </div>
 
         <div class="footer footer__margin">
